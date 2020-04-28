@@ -21,7 +21,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comment_id")
-    private UUID id;
+    private Long id;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)

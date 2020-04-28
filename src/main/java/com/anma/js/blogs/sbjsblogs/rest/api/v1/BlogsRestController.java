@@ -27,7 +27,7 @@ public class BlogsRestController {
     }
 
     @GetMapping("/{blogId}")
-    public Blog getBlog(@PathVariable UUID blogId) {
+    public Blog getBlog(@PathVariable Long blogId) {
         return blogRepository.findById(blogId).get();
     }
 

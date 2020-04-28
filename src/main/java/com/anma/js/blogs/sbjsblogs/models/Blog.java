@@ -21,7 +21,7 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "blog_id")
-    private UUID id;
+    private Long id;
 
     @OneToMany(mappedBy = "blog")
     List<Comment> comments;

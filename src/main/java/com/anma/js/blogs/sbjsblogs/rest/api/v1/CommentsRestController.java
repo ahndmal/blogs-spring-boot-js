@@ -23,7 +23,7 @@ public class CommentsRestController {
     }
 
     @GetMapping("/rest/api/v1/blogs/{blogId}/comments")
-    public List<Comment> getComments(@PathVariable UUID blogId) {
+    public List<Comment> getComments(@PathVariable Long blogId) {
         return blogRepository.findById(blogId).get().getComments();
     }
 }

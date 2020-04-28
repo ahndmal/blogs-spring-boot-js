@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.UUID;
-
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
@@ -26,7 +24,7 @@ public class BlogController {
     }
 
     @GetMapping("/{blogId}")
-    public String getBlogById(@PathVariable UUID blogId, Model model) {
+    public String getBlogById(@PathVariable Long blogId, Model model) {
         model.addAttribute("blog", blogRepository.findById(blogId).get());
         return "blog";
     }
