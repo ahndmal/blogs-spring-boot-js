@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Blogs</title>
@@ -9,12 +9,14 @@
 
 <body>
 
-    <h2>Blogs</h2>
+    <h2>Blog</h2>
 
     <div class="root"></div>
 
+    <p th:text="${blog.title}"></p>
+    <p th:text="${blog.author}"></p>
 
-    <script src="scripts/blogs.js"></script>
+    <script src="scripts/blog.js"></script>
 
 </body>
 

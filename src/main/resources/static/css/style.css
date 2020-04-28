@@ -1,5 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
 body {
-    font-family: 'Bangers', cursive;
+    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Bangers', cursive;*/
+}
+
+.blog {
+    border-radius: 6px;
+    border: 1px solid deepskyblue;
+    margin: 6px;
+    padding: 6px;
 }

@@ -24,7 +24,8 @@ public class Blog {
     @Column(name = "blog_id")
     private UUID id;
 
+    private String title;
+    private String author;
     private String body;
-
     private LocalDate creationDate;
 }

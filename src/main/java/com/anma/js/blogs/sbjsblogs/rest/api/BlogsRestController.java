@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping(BlogsRestController.REST_URL)
 public class BlogsRestController {
 
-    final static String REST_URL = "/rest/api/va/blogs";
+    final static String REST_URL = "/rest/api/v1/blogs";
 
     private final BlogRepository blogRepository;
 
