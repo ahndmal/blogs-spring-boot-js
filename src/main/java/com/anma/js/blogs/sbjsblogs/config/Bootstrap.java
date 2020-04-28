@@ -1,6 +1,6 @@
 package com.anma.js.blogs.sbjsblogs.config;
 
-import com.anma.js.blogs.sbjsblogs.BlogRepository;
+import com.anma.js.blogs.sbjsblogs.repositorie.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.models.Blog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

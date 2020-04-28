@@ -1,6 +1,6 @@
 package com.anma.js.blogs.sbjsblogs.rest.api.v1;
 
-import com.anma.js.blogs.sbjsblogs.BlogRepository;
+import com.anma.js.blogs.sbjsblogs.repositorie.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.models.Blog;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
