@@ -1,10 +1,10 @@
-package com.anma.js.blogs.sbjsblogs.rest.api;
+package com.anma.js.blogs.sbjsblogs.rest.api.v1;
 
 import com.anma.js.blogs.sbjsblogs.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.models.Blog;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +23,11 @@ public class BlogsRestController {
     @GetMapping
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
+    }
+
+    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseStatus(HttpStatus.CREATED)
+    public Blog createBlog(@RequestBody Blog blog) {
+        return blogRepository.save(blog);
     }
 }

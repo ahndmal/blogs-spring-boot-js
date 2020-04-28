@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -15,19 +14,20 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "blogs")
-public class Blog {
+@Table(name = "comments")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "blog_id")
+    @Column(name = "comment_id")
     private UUID id;
 
-    @OneToMany(mappedBy = "blog")
-    List<Comment> comments;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "blog_id", referencedColumnName = "blog_id")
+    private Blog blog;
 
     private String title;
     private String author;
     private String body;
-    private LocalDate creationDate = LocalDate.now();
+    private LocalDate creationDate;
 }
