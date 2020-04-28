@@ -1,5 +1,6 @@
 package com.anma.js.blogs.sbjsblogs.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Comment {
     @Column(name = "comment_id")
     private UUID id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "blog_id", referencedColumnName = "blog_id")
     private Blog blog;

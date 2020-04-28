@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(BlogsRestController.REST_URL)
@@ -23,6 +24,11 @@ public class BlogsRestController {
     @GetMapping
     public List<Blog> getAllBlogs() {
         return blogRepository.findAll();
+    }
+
+    @GetMapping("/{blogId}")
+    public Blog getBlog(@PathVariable UUID blogId) {
+        return blogRepository.findById(blogId).get();
     }
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})

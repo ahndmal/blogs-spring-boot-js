@@ -1,7 +1,9 @@
 package com.anma.js.blogs.sbjsblogs.config;
 
+import com.anma.js.blogs.sbjsblogs.models.Comment;
 import com.anma.js.blogs.sbjsblogs.repositorie.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.models.Blog;
+import com.anma.js.blogs.sbjsblogs.repositorie.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,18 +15,33 @@ import java.util.UUID;
 public class Bootstrap implements CommandLineRunner {
 
     private final BlogRepository blogRepository;
+    private final CommentsRepository commentsRepository;
 
     @Autowired
-    public Bootstrap(BlogRepository blogRepository) {
+    public Bootstrap(BlogRepository blogRepository, CommentsRepository commentsRepository) {
         this.blogRepository = blogRepository;
+        this.commentsRepository = commentsRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        loadData();
+        loadBlogs();
+        loadComments();
     }
 
-    private void loadData() {
+    private void loadComments() {
+        Comment comment1 = Comment.builder()
+                .author("anma")
+                .blog(blogRepository.getBlogByAuthor("Marc"))
+                .body("Hello! First comment ...")
+                .title("First comment")
+                .creationDate(LocalDate.now())
+                .build();
+        commentsRepository.save(comment1);
+    }
+
+    private void loadBlogs() {
+
         Blog blog1 = Blog.builder()
                 .id(UUID.randomUUID())
                 .title("Why you should try Svelte Intro to Svelte")
