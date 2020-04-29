@@ -14,20 +14,29 @@ saveCommentBtn.addEventListener('click', (e) => {
         body: commentBodyInput.value,
         author: 'test',
         creationDate: new Date()
-    }).then(response => console.log(`Comment created ==> ${response.data}`))
+    }).then(response => {
+        let commentS = JSON.stringify(response.data)
+        console.log(`Comment created ==> ${commentS}`)
+    });
+    refreshComments();
 })
 
-axios.get(`/rest/api/v1/blogs/${blogId}/comments`)
-    .then(response => {
-        for (let comment of response.data) {
-            let commentDiv = document.createElement('div');
-            commentDiv.innerHTML = `
+
+function refreshComments() {
+    commentsRoot.innerHTML = '';
+    axios.get(`/rest/api/v1/blogs/${blogId}/comments`)
+        .then(response => {
+            for (let comment of response.data) {
+                let commentDiv = document.createElement('div');
+                commentDiv.innerHTML = `
             <div class="comment">
                 <p>${comment.author}</p>
                 <p>${comment.body}</p>
                 <p>${comment.creationDate}</p>
             </div>
             `;
-            commentsRoot.appendChild(commentDiv);
-        }
-    })
+                commentsRoot.appendChild(commentDiv);
+            }
+        });
+}
+refreshComments();
