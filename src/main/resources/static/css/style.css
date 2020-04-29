@@ -12,3 +12,18 @@ body {
     margin: 6px;
     padding: 6px;
 }
+
+.comment {
+    border-radius: 6px;
+    border: 1px solid deepskyblue;
+    margin: 6px;
+    padding: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}

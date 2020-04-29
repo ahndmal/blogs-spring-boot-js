@@ -19,11 +19,23 @@
     <p th:text="${blog.body}"></p>
 
     <p><b>Comments:</b></p>
+    <br>
+    <button id="add-comment-btn" class="button">Add Comment</button>
+
+    <div class="hidden add-comment-area">
+        <textarea name="comment-body" id="comment-body" cols="30" rows="10" placeholder="Add comment"></textarea>
+        <button id="save-comment-btn" class="button">Save</button>
+    </div>
 
     <div class="comments-root"></div>
 
 
-    <script src="scripts/blog.js"></script>
+    <script th:src="@{/scripts/blog.js}"></script>
+
+<!--    <script th:inline="javascript">-->
+<!--        var nameJs = /*[[${name}]]*/;-->
+<!--    </script>-->
+
 </body>
 
 </html>

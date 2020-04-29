@@ -28,7 +28,6 @@ public class Comment {
     @JoinColumn(name = "blog_id", referencedColumnName = "blog_id")
     private Blog blog;
 
-    private String title;
     private String author;
     private String body;
     private LocalDate creationDate;
