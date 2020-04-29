@@ -11,6 +11,9 @@
 
     <h2 th:text="${blog.title}"></h2>
 
+    <a class="button" href="/blogs">Back to blogs</a>
+    <br>
+
     <p>
         <span><b>By: </b></span>
         <span th:text="${blog.author}"></span>
@@ -20,6 +23,7 @@
 
     <p><b>Comments:</b></p>
     <br>
+
     <button id="add-comment-btn" class="button">Add Comment</button>
 
     <div class="hidden add-comment-area">

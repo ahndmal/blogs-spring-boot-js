@@ -23,7 +23,6 @@ axios.get(`/rest/api/v1/blogs/${blogId}/comments`)
             let commentDiv = document.createElement('div');
             commentDiv.innerHTML = `
             <div class="comment">
-                <p>${comment.title}</p>
                 <p>${comment.author}</p>
                 <p>${comment.body}</p>
                 <p>${comment.creationDate}</p>

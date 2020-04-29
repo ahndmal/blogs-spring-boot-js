@@ -24,8 +24,8 @@ public class Bootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        loadBlogs();
-        loadComments();
+//        loadBlogs();
+//        loadComments();
     }
 
     private void loadComments() {
@@ -34,7 +34,6 @@ public class Bootstrap implements CommandLineRunner {
                 .author("anma")
                 .blog(blogRepository.getBlogByAuthor("Marc"))
                 .body("Hello! First comment ...")
-                .title("First comment")
                 .creationDate(LocalDate.now())
                 .build();
         commentsRepository.save(comment1);

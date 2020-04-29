@@ -27,3 +27,11 @@ body {
 .show {
     display: block;
 }
+
+.button {
+    background: deepskyblue;
+    color: white;
+    padding: 4px;
+    margin: 4px;
+    border-radius: 4px;
+}
