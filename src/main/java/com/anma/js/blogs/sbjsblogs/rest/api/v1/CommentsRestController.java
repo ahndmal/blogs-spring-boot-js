@@ -1,5 +1,6 @@
 package com.anma.js.blogs.sbjsblogs.rest.api.v1;
 
+import com.anma.js.blogs.sbjsblogs.exceptions.ResourseNotFoundException;
 import com.anma.js.blogs.sbjsblogs.models.Comment;
 import com.anma.js.blogs.sbjsblogs.repositorie.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.repositorie.CommentsRepository;
@@ -7,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class CommentsRestController {
@@ -31,6 +31,13 @@ public class CommentsRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public Comment createComments(@PathVariable Long blogId, @RequestBody Comment comment) {
         comment.setBlog(blogRepository.findById(blogId).get());
+        return commentsRepository.save(comment);
+    }
+
+    @PatchMapping("/rest/api/v1/blogs/{blogId}/comments/{commentId}")
+    public Comment patchComment(@RequestBody Comment commentDetails, @PathVariable long commentId) {
+        Comment comment = commentsRepository.findById(commentId).orElseThrow(()-> new ResourseNotFoundException("Comment", "id", commentId));
+        comment.setBody(commentDetails.getBody());
         return commentsRepository.save(comment);
     }
 
