@@ -34,9 +34,24 @@ function refreshComments() {
                 <p>${comment.body}</p>
                 <p>${comment.creationDate}</p>
             </div>
+            <p>
+                <button class="button delete-comment-button" id="delete-comment-${comment.id}" data-id="${comment.id}">Delete</button>
+            </p>
             `;
                 commentsRoot.appendChild(commentDiv);
             }
         });
+    let deleteButtons = document.querySelectorAll('.delete-comment-button');
+    console.log(deleteButtons);
+    for (let button of deleteButtons) {
+        button.addEventListener('click', (e)=> {
+            const commentId = button.dataset.id;
+            console.log(commentId);
+            // axios.delete(`/rest/api/v1/blogs/${blogId}/comments/${commentId}`)
+        })
+    }
 }
+
+
+
 refreshComments();
