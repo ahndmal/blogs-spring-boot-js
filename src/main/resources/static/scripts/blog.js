@@ -59,4 +59,3 @@ function deleteButtonsListeners() {
 
 
 refreshComments();
-deleteButtonsListeners();
