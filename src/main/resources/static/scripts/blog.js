@@ -40,18 +40,23 @@ function refreshComments() {
             `;
                 commentsRoot.appendChild(commentDiv);
             }
-        });
+            deleteButtonsListeners();
+        }).catch(error => console.log(error))
+
+}
+
+function deleteButtonsListeners() {
     let deleteButtons = document.querySelectorAll('.delete-comment-button');
     console.log(deleteButtons);
     for (let button of deleteButtons) {
         button.addEventListener('click', (e)=> {
             const commentId = button.dataset.id;
-            console.log(commentId);
-            // axios.delete(`/rest/api/v1/blogs/${blogId}/comments/${commentId}`)
+            axios.delete(`/rest/api/v1/blogs/${blogId}/comments/${commentId}`)
         })
     }
+    // refreshComments();
 }
 
 
-
 refreshComments();
+deleteButtonsListeners();

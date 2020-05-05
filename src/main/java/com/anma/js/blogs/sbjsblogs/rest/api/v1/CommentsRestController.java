@@ -4,12 +4,14 @@ import com.anma.js.blogs.sbjsblogs.exceptions.ResourseNotFoundException;
 import com.anma.js.blogs.sbjsblogs.models.Comment;
 import com.anma.js.blogs.sbjsblogs.repositorie.BlogRepository;
 import com.anma.js.blogs.sbjsblogs.repositorie.CommentsRepository;
+import lombok.extern.java.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Log
 public class CommentsRestController {
 
     private final CommentsRepository commentsRepository;
@@ -44,6 +46,8 @@ public class CommentsRestController {
     @DeleteMapping("/rest/api/v1/blogs/{blogId}/comments/{commentId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteComment(@PathVariable long blogId, @PathVariable long commentId) {
+        log.info("********* Deleting comment " + commentId);
         commentsRepository.delete(commentsRepository.findById(commentId).get());
+        log.info("********* Comment deleted");
     }
 }
